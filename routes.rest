@@ -29,7 +29,7 @@ GET http://localhost:8080/
 GET http://localhost:8080/666b1e169c77d91e0f1f9fcb
 
 ### update E_card
-curl -X PUT http://localhost:8080/666b1e169c77d91e0f1f9fcb \
+curl -X PUT http://localhost:8080/666b4a2f42c77477fc482f95 \
 -H "Content-Type: application/json" \
 -d '{
   "firstName": "John",
