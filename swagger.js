@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const doc = {
   info: {
-    title: 'E-Card Management API',
+    title: 'Fakad Infotech Centre Management API',
     description: `API documentation for the E-Card Management API. This API is designed to help you manage electronic business cards efficiently. Whether you need to create, retrieve, update, or delete e-cards, this API has got you covered. With a user-friendly interface and comprehensive functionality, you can seamlessly integrate e-card management into your applications.
 
 **Key Features:**
