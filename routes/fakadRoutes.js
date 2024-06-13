@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
 
-// Import the e_cardController to handle requests
-const e_cardController = require('../controllers/e_cardController');
+// Import the fakadController to handle requests
+const fakadController = require('../controllers/fakadController');
 
 // Validation and sanitization middleware for create and update operations
-const validateAndSanitizeECard = [
+const validateAndSanitizeFakad = [
   body('firstName').isString().trim().notEmpty(),
   body('middleName').optional().isString().trim(),
   body('lastName').isString().trim().notEmpty(),
@@ -25,20 +25,20 @@ const validateAndSanitizeECard = [
 
 // Define the API routes and their corresponding controller methods
 
-// Create a new e_card
-router.post('/', validateAndSanitizeECard, e_cardController.createEcard);
+// Create a new fakad
+router.post('/', validateAndSanitizeFakad, fakadController.createFakad);
 
-// Get all e_cards
-router.get('/', e_cardController.getAllEcards);
+// Get all fakads
+router.get('/', fakadController.getAllFakads);
 
-// Get a single e_card by ID
-router.get('/:id', e_cardController.getSingleEcard);
+// Get a single fakad by ID
+router.get('/:id', fakadController.getSingleFakad);
 
-// Update an e_card by ID
-router.put('/:id', validateAndSanitizeECard, e_cardController.updateEcard);
+// Update fakad by ID
+router.put('/:id', validateAndSanitizeFakad, fakadController.updateFakad);
 
-// Delete an e_card by ID
-router.delete('/:id', e_cardController.deleteEcard);
+// Delete fakad by ID
+router.delete('/:id', fakadController.deleteFakad);
 
 // Export the Router
 module.exports = router;

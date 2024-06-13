@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongodb = require('./db/db');
-const ecardRoutes = require('./routes/e_cardRoutes'); // Correct import for e_card routes
+const ecardRoutes = require('./routes/fakadRoutes'); // Correct import for e_card routes
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 app.use('/', require('./routes'));
 
 // // Use routes defined in separate files
-// app.use('/api/ecards', ecardRoutes); // Define a base path for ecard routes
+// app.use('/api/fakads', fakadRoutes); // Define a base path for fakad routes
 
 // Initialize the database connection
 mongodb.initDb((err) => {
@@ -34,7 +34,7 @@ mongodb.initDb((err) => {
   } else {
     app.listen(port, () => {
       console.log(`Running and listening on port ${port}`);
-      console.log('Ecard successfully initialized');
+      console.log('Fakad successfully initialized');
     });
   }
 });

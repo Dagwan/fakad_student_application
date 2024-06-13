@@ -4,7 +4,7 @@ const router = express.Router();
 // Include the Swagger documentation route
 router.use('/', require('./swagger'));
 
-// Include the e_card routes
-router.use('/', require('./e_cardRoutes'));
+// Include the fakad routes
+router.use('/', require('./fakadRoutes'));
 
 module.exports = router;
