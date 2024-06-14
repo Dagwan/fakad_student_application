@@ -27,10 +27,16 @@ const createFakad = async (req, res) => {
       passportPhotograph
     } = req.body;
 
-    // Check if email already exists
-    const existingFakad = await mongodb.getDb().db().collection('faka_info_techs').findOne({ email });
+    // Check if first name or  email already exists
+    const existingFakad = await mongodb.getDb().db().collection('faka_info_techs').findOne({ 
+      $or: [
+        { firstName: firstName },
+        { email: email }
+      ]
+    })
+
     if (existingFakad) {
-      return res.status(400).json({ error: 'Email address is already in use.' });
+      return res.status(400).json({ error: 'First name or Email address is already in use.' });
     }
 
     // Create the new faka_info_tech
@@ -155,7 +161,7 @@ const updateFakad = async (req, res) => {
       .replaceOne({ _id: userId }, faka_info_tech);
 
     if (response.modifiedCount > 0) {
-      res.status(204).send(); // Successfully updated
+      res.status(201).json({ success: 'Fakad successfully updated', fakadId: response.insertedId }); // Successfully updated
     } else {
       res.status(404).json({ error: 'Fakad not found.' }); // Document not found
     }
@@ -179,7 +185,7 @@ const deleteFakad = async (req, res) => {
     const response = await mongodb.getDb().db().collection('faka_info_techs').deleteOne({ _id: userId });
 
     if (response.deletedCount > 0) {
-      res.status(204).send();
+      res.status(201).json({ success: 'Fakad successfully deleted', fakadId: response.insertedId }); // Success deleted
     } else {
       res.status(500).json({ error: 'Error occurred while deleting the faka_info_tech.' });
     }

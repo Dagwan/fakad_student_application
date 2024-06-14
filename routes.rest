@@ -13,7 +13,7 @@ curl -X POST http://localhost:8080/ \
   "headquartersLocation": "Tech City HQ",
   "subBusinessBranches": ["Branch 1", "Branch 2"],
   "contactNumber": "+1234567890",
-  "email": "hopesimon@gmail.com",
+  "email": "dan@gmail.com",
   "socialMediaHandles": {
     "linkedin": "linkedin.com/in/hopesimon",
     "twitter": "twitter.com/hopesimon"
@@ -29,7 +29,7 @@ GET http://localhost:8080/
 GET http://localhost:8080/666befec70789b4ba885ec2b
 
 ### update fakad
-curl -X PUT http://localhost:8080/666befec70789b4ba885ec2b \
+curl -X PUT http://localhost:8080/666c37151beda200ff3312b7 \
 -H "Content-Type: application/json" \
 -d '{
   "firstName": "John",
@@ -51,4 +51,4 @@ curl -X PUT http://localhost:8080/666befec70789b4ba885ec2b \
 }'
 
 ### delete a fakad
-DELETE http://localhost:8080/666be962f7e4ea13c074036c
+DELETE http://localhost:8080/666c37151beda200ff3312b7
