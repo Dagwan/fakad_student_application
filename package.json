@@ -2,10 +2,10 @@
   "name": "Fakad Application",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon app.js",
+    "start": "nodemon server.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write \"**/*.js\"",
