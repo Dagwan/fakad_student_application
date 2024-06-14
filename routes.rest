@@ -26,7 +26,7 @@ curl -X POST http://localhost:8080/ \
 GET http://localhost:8080/
 
 ### get fakads by id
-GET http://localhost:8080/666be962f7e4ea13c074036c
+GET http://localhost:8080/666befec70789b4ba885ec2b
 
 ### update fakad
 curl -X PUT http://localhost:8080/666be962f7e4ea13c074036c \
