@@ -1,5 +1,6 @@
-// LOCALHOST
-### create fakads
+# // LOCALHOST
+
+# ### create fakads
 curl -X POST http://localhost:8080/ \
 -H "Content-Type: application/json" \
 -d '{
@@ -7,48 +8,188 @@ curl -X POST http://localhost:8080/ \
   "middleName": "A",
   "lastName": "Simon",
   "gender": "Female",
+  "dateOfBirth": "1990-05-15",
+  "maritalStatus": "Single",
+  "phoneNumber": "+1234567890",
+  "email": "hope.simon@example.com",
+  "contactAddress": "123 Tech Street",
   "occupation": "Software Engineer",
-  "position": "Developer",
-  "officeAddress": "123 Tech Street",
-  "headquartersLocation": "Tech City HQ",
-  "subBusinessBranches": ["Branch 1", "Branch 2"],
-  "contactNumber": "+1234567890",
-  "email": "dan@gmail.com",
-  "socialMediaHandles": {
-    "linkedin": "linkedin.com/in/hopesimon",
-    "twitter": "twitter.com/hopesimon"
+  "placeOfBirth": "Tech City",
+  "stateOfOrigin": "Tech State",
+  "localGovtArea": "Tech Local Govt",
+  "homeTown": "Tech Town",
+  "villageAddress": "Tech Village",
+  "previousTraining": "Yes",
+  "previousTrainingDetails": {
+    "trainingPlaceName": "Tech Training Center",
+    "trainingAddress": "456 Training Avenue",
+    "trainingDuration": "6 months"
   },
-  "passportPhotograph": "base64ImageString"
+  "choiceOfTrainingProgramme": "Certificate",
+  "passportPhotograph": "base64ImageString",
+  "guardian": {
+    "firstName": "GuardianFirstName",
+    "middleName": "GuardianMiddleName",
+    "lastName": "GuardianLastName",
+    "gender": "Male",
+    "maritalStatus": "Married",
+    "phoneNumber": "+9876543210",
+    "email": "guardian@example.com",
+    "contactAddress": "789 Guardian Street",
+    "occupation": "Guardian Occupation",
+    "placeOfBirth": "Guardian City",
+    "stateOfOrigin": "Guardian State",
+    "localGovtArea": "Guardian Local Govt",
+    "homeTown": "Guardian Town",
+    "villageAddress": "Guardian Village",
+    "identificationType": "National ID",
+    "identificationUpload": "base64ImageString",
+    "passportPhotograph": "guardianBase64ImageString"
+  },
+  "nextOfKin": {
+    "firstName": "NextOfKinFirstName",
+    "middleName": "NextOfKinMiddleName",
+    "lastName": "NextOfKinLastName",
+    "gender": "Female",
+    "maritalStatus": "Single",
+    "relationship": "Mother",
+    "phoneNumber": "+9876543210",
+    "email": "nextofkin@example.com",
+    "contactAddress": "789 NextOfKin Street",
+    "occupation": "NextOfKin Occupation",
+    "placeOfBirth": "NextOfKin City",
+    "stateOfOrigin": "NextOfKin State",
+    "localGovtArea": "NextOfKin Local Govt",
+    "homeTown": "NextOfKin Town",
+    "villageAddress": "NextOfKin Village"
+  }
 }'
 
-
-### get all fakads
+### Get all fakads
 GET http://localhost:8080/
 
-### get fakads by id
-GET http://localhost:8080/666befec70789b4ba885ec2b
 
-### update fakad
-curl -X PUT http://localhost:8080/666c37151beda200ff3312b7 \
+### Get a fakad by ID
+GET http://localhost:8080/666c6cd69c63e3dfe6cd6def
+// Replace :id with the actual ID of the fakad
+
+
+### Update a fakad
+curl -X PUT http://localhost:8080/666c6cd69c63e3dfe6cd6def \
 -H "Content-Type: application/json" \
 -d '{
   "firstName": "John",
   "middleName": "B",
   "lastName": "Doe",
   "gender": "Male",
-  "occupation": "Data Scientist",
-  "position": "Senior Analyst",
-  "officeAddress": "456 Data Avenue",
-  "headquartersLocation": "Data City HQ",
-  "subBusinessBranches": ["Branch 3", "Branch 4"],
-  "contactNumber": "+9876543210",
+  "dateOfBirth": "1995-08-20",
+  "maritalStatus": "Married",
+  "phoneNumber": "+9876543210",
   "email": "johndoe@example.com",
-  "socialMediaHandles": {
-    "linkedin": "linkedin.com/in/johndoe",
-    "twitter": "twitter.com/johndoe"
+  "contactAddress": "456 Data Avenue",
+  "occupation": "Data Scientist",
+  "placeOfBirth": "Data City",
+  "stateOfOrigin": "Data State",
+  "localGovtArea": "Data Local Govt",
+  "homeTown": "Data Town",
+  "villageAddress": "Data Village",
+  "previousTraining": "No",
+  "choiceOfTrainingProgramme": "Diploma",
+  "passportPhotograph": "newBase64ImageString",
+  "guardian": {
+    "firstName": "UpdatedGuardianFirstName",
+    "middleName": "",
+    "lastName": "UpdatedGuardianLastName",
+    "gender": "Female",
+    "maritalStatus": "Divorced",
+    "phoneNumber": "+9876543210",
+    "email": "updatedguardian@example.com",
+    "contactAddress": "789 Updated Guardian Street",
+    "occupation": "Updated Guardian Occupation",
+    "placeOfBirth": "Updated Guardian City",
+    "stateOfOrigin": "Updated Guardian State",
+    "localGovtArea": "Updated Guardian Local Govt",
+    "homeTown": "Updated Guardian Town",
+    "villageAddress": "Updated Guardian Village",
+    "identificationType": "International Passport",
+    "identificationUpload": "updatedBase64ImageString",
+    "passportPhotograph": "updatedGuardianBase64ImageString"
   },
-  "passportPhotograph": "newBase64ImageString"
+  "nextOfKin": {
+    "firstName": "UpdatedNextOfKinFirstName",
+    "middleName": "",
+    "lastName": "UpdatedNextOfKinLastName",
+    "gender": "Male",
+    "maritalStatus": "Married",
+    "relationship": "Father",
+    "phoneNumber": "+9876543210",
+    "email": "updatednextofkin@example.com",
+    "contactAddress": "789 Updated NextOfKin Street",
+    "occupation": "Updated NextOfKin Occupation",
+    "placeOfBirth": "Updated NextOfKin City",
+    "stateOfOrigin": "Updated NextOfKin State",
+    "localGovtArea": "Updated NextOfKin Local Govt",
+    "homeTown": "Updated NextOfKin Town",
+    "villageAddress": "Updated NextOfKin Village"
+  }
 }'
 
-### delete a fakad
-DELETE http://localhost:8080/666c37151beda200ff3312b7
+
+### Delete a fakad by ID
+DELETE http://localhost:8080/666c6e8309e99005084905e8
+
+
+# // LOCALHOST
+# ### create fakads
+# curl -X POST http://localhost:8080/ \
+# -H "Content-Type: application/json" \
+# -d '{
+#   "firstName": "Hope",
+#   "middleName": "A",
+#   "lastName": "Simon",
+#   "gender": "Female",
+#   "occupation": "Software Engineer",
+#   "position": "Developer",
+#   "officeAddress": "123 Tech Street",
+#   "headquartersLocation": "Tech City HQ",
+#   "subBusinessBranches": ["Branch 1", "Branch 2"],
+#   "contactNumber": "+1234567890",
+#   "email": "dan@gmail.com",
+#   "socialMediaHandles": {
+#     "linkedin": "linkedin.com/in/hopesimon",
+#     "twitter": "twitter.com/hopesimon"
+#   },
+#   "passportPhotograph": "base64ImageString"
+# }'
+
+
+# ### get all fakads
+# GET http://localhost:8080/
+
+# ### get fakads by id
+# GET http://localhost:8080/666befec70789b4ba885ec2b
+
+# ### update fakad
+# curl -X PUT http://localhost:8080/666c37151beda200ff3312b7 \
+# -H "Content-Type: application/json" \
+# -d '{
+#   "firstName": "John",
+#   "middleName": "B",
+#   "lastName": "Doe",
+#   "gender": "Male",
+#   "occupation": "Data Scientist",
+#   "position": "Senior Analyst",
+#   "officeAddress": "456 Data Avenue",
+#   "headquartersLocation": "Data City HQ",
+#   "subBusinessBranches": ["Branch 3", "Branch 4"],
+#   "contactNumber": "+9876543210",
+#   "email": "johndoe@example.com",
+#   "socialMediaHandles": {
+#     "linkedin": "linkedin.com/in/johndoe",
+#     "twitter": "twitter.com/johndoe"
+#   },
+#   "passportPhotograph": "newBase64ImageString"
+# }'
+
+# ### delete a fakad
+# DELETE http://localhost:8080/666c37151beda200ff3312b7

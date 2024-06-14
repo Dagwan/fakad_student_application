@@ -11,29 +11,73 @@ const createFakad = async (req, res) => {
     }
 
     const {
+      // Student Information
       firstName,
       middleName,
       lastName,
       gender,
-      specifiedGender,
-      occupation,
-      position,
-      officeAddress,
-      headquartersLocation,
-      subBusinessBranches,
-      contactNumber,
+      dateOfBirth,
+      maritalStatus,
+      phoneNumber,
       email,
-      socialMediaHandles,
-      passportPhotograph
+      contactAddress,
+      occupation,
+      placeOfBirth,
+      stateOfOrigin,
+      localGovtArea,
+      homeTown,
+      villageAddress,
+      previousTraining,
+      previousTrainingDetails,
+      choiceOfTrainingProgramme,
+      passportPhotograph,
+      // Guardian Information
+      guardian: {
+        firstName: guardianFirstName,
+        middleName: guardianMiddleName,
+        lastName: guardianLastName,
+        gender: guardianGender,
+        maritalStatus: guardianMaritalStatus,
+        phoneNumber: guardianPhoneNumber,
+        email: guardianEmail,
+        contactAddress: guardianContactAddress,
+        occupation: guardianOccupation,
+        placeOfBirth: guardianPlaceOfBirth,
+        stateOfOrigin: guardianStateOfOrigin,
+        localGovtArea: guardianLocalGovtArea,
+        homeTown: guardianHomeTown,
+        villageAddress: guardianVillageAddress,
+        identificationType: guardianIdentificationType,
+        identificationUpload: guardianIdentificationUpload,
+        passportPhotograph: guardianPassportPhotograph
+      },
+      // Next of Kin Information
+      nextOfKin: {
+        firstName: nextOfKinFirstName,
+        middleName: nextOfKinMiddleName,
+        lastName: nextOfKinLastName,
+        gender: nextOfKinGender,
+        maritalStatus: nextOfKinMaritalStatus,
+        relationship: nextOfKinRelationship,
+        phoneNumber: nextOfKinPhoneNumber,
+        email: nextOfKinEmail,
+        contactAddress: nextOfKinContactAddress,
+        occupation: nextOfKinOccupation,
+        placeOfBirth: nextOfKinPlaceOfBirth,
+        stateOfOrigin: nextOfKinStateOfOrigin,
+        localGovtArea: nextOfKinLocalGovtArea,
+        homeTown: nextOfKinHomeTown,
+        villageAddress: nextOfKinVillageAddress
+      }
     } = req.body;
 
-    // Check if first name or  email already exists
+    // Check if first name or email already exists
     const existingFakad = await mongodb.getDb().db().collection('faka_info_techs').findOne({ 
       $or: [
         { firstName: firstName },
         { email: email }
       ]
-    })
+    });
 
     if (existingFakad) {
       return res.status(400).json({ error: 'First name or Email address is already in use.' });
@@ -41,20 +85,64 @@ const createFakad = async (req, res) => {
 
     // Create the new faka_info_tech
     const faka_info_tech = {
+      // Student Information
       firstName,
       middleName,
       lastName,
       gender,
-      specifiedGender: gender === 'other' ? specifiedGender : undefined,
-      occupation,
-      position,
-      officeAddress,
-      headquartersLocation,
-      subBusinessBranches,
-      contactNumber,
+      dateOfBirth,
+      maritalStatus,
+      phoneNumber,
       email,
-      socialMediaHandles,
-      passportPhotograph
+      contactAddress,
+      occupation,
+      placeOfBirth,
+      stateOfOrigin,
+      localGovtArea,
+      homeTown,
+      villageAddress,
+      previousTraining,
+      previousTrainingDetails,
+      choiceOfTrainingProgramme,
+      passportPhotograph,
+      // Guardian Information
+      guardian: {
+        firstName: guardianFirstName,
+        middleName: guardianMiddleName,
+        lastName: guardianLastName,
+        gender: guardianGender,
+        maritalStatus: guardianMaritalStatus,
+        phoneNumber: guardianPhoneNumber,
+        email: guardianEmail,
+        contactAddress: guardianContactAddress,
+        occupation: guardianOccupation,
+        placeOfBirth: guardianPlaceOfBirth,
+        stateOfOrigin: guardianStateOfOrigin,
+        localGovtArea: guardianLocalGovtArea,
+        homeTown: guardianHomeTown,
+        villageAddress: guardianVillageAddress,
+        identificationType: guardianIdentificationType,
+        identificationUpload: guardianIdentificationUpload,
+        passportPhotograph: guardianPassportPhotograph
+      },
+      // Next of Kin Information
+      nextOfKin: {
+        firstName: nextOfKinFirstName,
+        middleName: nextOfKinMiddleName,
+        lastName: nextOfKinLastName,
+        gender: nextOfKinGender,
+        maritalStatus: nextOfKinMaritalStatus,
+        relationship: nextOfKinRelationship,
+        phoneNumber: nextOfKinPhoneNumber,
+        email: nextOfKinEmail,
+        contactAddress: nextOfKinContactAddress,
+        occupation: nextOfKinOccupation,
+        placeOfBirth: nextOfKinPlaceOfBirth,
+        stateOfOrigin: nextOfKinStateOfOrigin,
+        localGovtArea: nextOfKinLocalGovtArea,
+        homeTown: nextOfKinHomeTown,
+        villageAddress: nextOfKinVillageAddress
+      }
     };
 
     const response = await mongodb.getDb().db().collection('faka_info_techs').insertOne(faka_info_tech);
@@ -69,6 +157,7 @@ const createFakad = async (req, res) => {
     res.status(500).json({ error: 'An error occurred while creating the faka_info_tech.' });
   }
 };
+
 
 // Get all faka_info_techs
 const getAllFakads = async (req, res) => {
@@ -123,16 +212,59 @@ const updateFakad = async (req, res) => {
       middleName,
       lastName,
       gender,
-      specifiedGender,
-      occupation,
-      position,
-      officeAddress,
-      headquartersLocation,
-      subBusinessBranches,
-      contactNumber,
+      dateOfBirth,
+      maritalStatus,
+      phoneNumber,
       email,
-      socialMediaHandles,
-      passportPhotograph
+      contactAddress,
+      occupation,
+      placeOfBirth,
+      stateOfOrigin,
+      localGovtArea,
+      homeTown,
+      villageAddress,
+      previousTraining,
+      previousTrainingDetails,
+      choiceOfTrainingProgramme,
+      passportPhotograph,
+      // Guardian Information
+      guardian: {
+        firstName: guardianFirstName,
+        middleName: guardianMiddleName,
+        lastName: guardianLastName,
+        gender: guardianGender,
+        maritalStatus: guardianMaritalStatus,
+        phoneNumber: guardianPhoneNumber,
+        email: guardianEmail,
+        contactAddress: guardianContactAddress,
+        occupation: guardianOccupation,
+        placeOfBirth: guardianPlaceOfBirth,
+        stateOfOrigin: guardianStateOfOrigin,
+        localGovtArea: guardianLocalGovtArea,
+        homeTown: guardianHomeTown,
+        villageAddress: guardianVillageAddress,
+        identificationType: guardianIdentificationType,
+        identificationUpload: guardianIdentificationUpload,
+        passportPhotograph: guardianPassportPhotograph
+      },
+      // Next of Kin Information
+      nextOfKin: {
+        firstName: nextOfKinFirstName,
+        middleName: nextOfKinMiddleName,
+        lastName: nextOfKinLastName,
+        gender: nextOfKinGender,
+        maritalStatus: nextOfKinMaritalStatus,
+        relationship: nextOfKinRelationship,
+        phoneNumber: nextOfKinPhoneNumber,
+        email: nextOfKinEmail,
+        contactAddress: nextOfKinContactAddress,
+        occupation: nextOfKinOccupation,
+        placeOfBirth: nextOfKinPlaceOfBirth,
+        stateOfOrigin: nextOfKinStateOfOrigin,
+        localGovtArea: nextOfKinLocalGovtArea,
+        homeTown: nextOfKinHomeTown,
+        villageAddress: nextOfKinVillageAddress
+      }
     } = req.body;
 
     // Update the faka_info_tech
@@ -142,16 +274,59 @@ const updateFakad = async (req, res) => {
       middleName,
       lastName,
       gender,
-      specifiedGender: gender === 'other' ? specifiedGender : undefined,
-      occupation,
-      position,
-      officeAddress,
-      headquartersLocation,
-      subBusinessBranches,
-      contactNumber,
+      dateOfBirth,
+      maritalStatus,
+      phoneNumber,
       email,
-      socialMediaHandles,
-      passportPhotograph
+      contactAddress,
+      occupation,
+      placeOfBirth,
+      stateOfOrigin,
+      localGovtArea,
+      homeTown,
+      villageAddress,
+      previousTraining,
+      previousTrainingDetails,
+      choiceOfTrainingProgramme,
+      passportPhotograph,
+      // Guardian Information
+      guardian: {
+        firstName: guardianFirstName,
+        middleName: guardianMiddleName,
+        lastName: guardianLastName,
+        gender: guardianGender,
+        maritalStatus: guardianMaritalStatus,
+        phoneNumber: guardianPhoneNumber,
+        email: guardianEmail,
+        contactAddress: guardianContactAddress,
+        occupation: guardianOccupation,
+        placeOfBirth: guardianPlaceOfBirth,
+        stateOfOrigin: guardianStateOfOrigin,
+        localGovtArea: guardianLocalGovtArea,
+        homeTown: guardianHomeTown,
+        villageAddress: guardianVillageAddress,
+        identificationType: guardianIdentificationType,
+        identificationUpload: guardianIdentificationUpload,
+        passportPhotograph: guardianPassportPhotograph
+      },
+      // Next of Kin Information
+      nextOfKin: {
+        firstName: nextOfKinFirstName,
+        middleName: nextOfKinMiddleName,
+        lastName: nextOfKinLastName,
+        gender: nextOfKinGender,
+        maritalStatus: nextOfKinMaritalStatus,
+        relationship: nextOfKinRelationship,
+        phoneNumber: nextOfKinPhoneNumber,
+        email: nextOfKinEmail,
+        contactAddress: nextOfKinContactAddress,
+        occupation: nextOfKinOccupation,
+        placeOfBirth: nextOfKinPlaceOfBirth,
+        stateOfOrigin: nextOfKinStateOfOrigin,
+        localGovtArea: nextOfKinLocalGovtArea,
+        homeTown: nextOfKinHomeTown,
+        villageAddress: nextOfKinVillageAddress
+      }
     };
 
     const response = await mongodb

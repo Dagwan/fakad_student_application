@@ -33,34 +33,58 @@
                 "gender": {
                   "example": "any"
                 },
-                "specifiedGender": {
+                "dateOfBirth": {
                   "example": "any"
                 },
-                "occupation": {
+                "maritalStatus": {
                   "example": "any"
                 },
-                "position": {
-                  "example": "any"
-                },
-                "officeAddress": {
-                  "example": "any"
-                },
-                "headquartersLocation": {
-                  "example": "any"
-                },
-                "subBusinessBranches": {
-                  "example": "any"
-                },
-                "contactNumber": {
+                "phoneNumber": {
                   "example": "any"
                 },
                 "email": {
                   "example": "any"
                 },
-                "socialMediaHandles": {
+                "contactAddress": {
+                  "example": "any"
+                },
+                "occupation": {
+                  "example": "any"
+                },
+                "placeOfBirth": {
+                  "example": "any"
+                },
+                "stateOfOrigin": {
+                  "example": "any"
+                },
+                "localGovtArea": {
+                  "example": "any"
+                },
+                "homeTown": {
+                  "example": "any"
+                },
+                "villageAddress": {
+                  "example": "any"
+                },
+                "previousTraining": {
+                  "example": "any"
+                },
+                "nameOfProgram": {
+                  "example": "any"
+                },
+                "previousTrainingDetails": {
+                  "example": "any"
+                },
+                "choiceOfTrainingProgramme": {
                   "example": "any"
                 },
                 "passportPhotograph": {
+                  "example": "any"
+                },
+                "guardian": {
+                  "example": "any"
+                },
+                "nextOfKin": {
                   "example": "any"
                 }
               }
@@ -81,9 +105,6 @@
       },
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -147,34 +168,58 @@
                 "gender": {
                   "example": "any"
                 },
-                "specifiedGender": {
+                "dateOfBirth": {
                   "example": "any"
                 },
-                "occupation": {
+                "maritalStatus": {
                   "example": "any"
                 },
-                "position": {
-                  "example": "any"
-                },
-                "officeAddress": {
-                  "example": "any"
-                },
-                "headquartersLocation": {
-                  "example": "any"
-                },
-                "subBusinessBranches": {
-                  "example": "any"
-                },
-                "contactNumber": {
+                "phoneNumber": {
                   "example": "any"
                 },
                 "email": {
                   "example": "any"
                 },
-                "socialMediaHandles": {
+                "contactAddress": {
+                  "example": "any"
+                },
+                "occupation": {
+                  "example": "any"
+                },
+                "placeOfBirth": {
+                  "example": "any"
+                },
+                "stateOfOrigin": {
+                  "example": "any"
+                },
+                "localGovtArea": {
+                  "example": "any"
+                },
+                "homeTown": {
+                  "example": "any"
+                },
+                "villageAddress": {
+                  "example": "any"
+                },
+                "previousTraining": {
+                  "example": "any"
+                },
+                "nameOfProgram": {
+                  "example": "any"
+                },
+                "previousTrainingDetails": {
+                  "example": "any"
+                },
+                "choiceOfTrainingProgramme": {
                   "example": "any"
                 },
                 "passportPhotograph": {
+                  "example": "any"
+                },
+                "guardian": {
+                  "example": "any"
+                },
+                "nextOfKin": {
                   "example": "any"
                 }
               }
@@ -182,8 +227,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request"
@@ -207,8 +252,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
           },
           "404": {
             "description": "Not Found"
