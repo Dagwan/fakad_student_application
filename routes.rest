@@ -29,7 +29,7 @@ GET http://localhost:8080/
 GET http://localhost:8080/666befec70789b4ba885ec2b
 
 ### update fakad
-curl -X PUT http://localhost:8080/666be962f7e4ea13c074036c \
+curl -X PUT http://localhost:8080/666befec70789b4ba885ec2b \
 -H "Content-Type: application/json" \
 -d '{
   "firstName": "John",
