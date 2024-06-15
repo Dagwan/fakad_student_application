@@ -26,7 +26,7 @@ Start managing your e-cards effortlessly with the E-Card Management API. Integra
   },
   host: process.env.HOST || 'localhost:8080',
   basePath: process.env.BASE_PATH || 'fakad-student-application.onrender.com',
-  schemes: [process.env.SCHEMES || 'http']
+  schemes: [process.env.SCHEMES || 'http', 'https']
 };
 
 const outputFile = './swagger.json';
