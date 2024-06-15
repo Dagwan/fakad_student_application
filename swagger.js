@@ -24,9 +24,9 @@ const doc = {
 
 Start managing your e-cards effortlessly with the E-Card Management API. Integrate it into your applications to streamline e-card management and enhance user experiences.`
   },
-  host: process.env.HOST,
-  basePath: '/',
-  schemes: [process.env.SCHEMES || 'http']
+  host: process.env.HOST || 'fakad-student-application.onrender.com',
+  // basePath: process.env.BASE_PATH || '/',
+  schemes: [process.env.SCHEMES || 'https']
 };
 
 const outputFile = './swagger.json';
