@@ -8,8 +8,8 @@
   "host": "localhost:8080",
   "basePath": "fakad-student-application.onrender.com",
   "schemes": [
-    "http",
-    "https"
+    "https, http",
+    "http"
   ],
   "paths": {
     "/": {
