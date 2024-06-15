@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon server.js",
+    "start:dev": "NODE_ENV=development node server.js",
+    "start:prod": "NODE_ENV=production node server.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write \"**/*.js\"",
