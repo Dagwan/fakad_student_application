@@ -70,12 +70,12 @@ GET http://localhost:8080/
 
 
 ### Get a fakad by ID
-GET http://localhost:8080/666d443f0ad026418997a59e
+GET http://localhost:8080/666d5890488b8fbb7aed8df8
 // Replace :id with the actual ID of the fakad
 
 
 ### Update a fakad
-curl -X PUT http://localhost:8080/666d443f0ad026418997a59e \
+curl -X PUT http://localhost:8080/666d5a06c7037727e4798ed7 \
 -H "Content-Type: application/json" \
 -d '{
   "firstName": "John",
@@ -136,6 +136,6 @@ curl -X PUT http://localhost:8080/666d443f0ad026418997a59e \
 
 
 ### Delete a fakad by ID
-DELETE http://localhost:8080/666d443f0ad026418997a59e
+DELETE http://localhost:8080/666d5890488b8fbb7aed8df8
 
 
