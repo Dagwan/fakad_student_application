@@ -25,7 +25,7 @@ const doc = {
 Start managing your e-cards effortlessly with the E-Card Management API. Integrate it into your applications to streamline e-card management and enhance user experiences.`
   },
   host: process.env.HOST || 'localhost:8080',
-  // basePath: process.env.BASE_PATH || '/',
+  basePath: process.env.BASE_PATH || '/',
   schemes: [process.env.SCHEMES || 'http']
 };
 

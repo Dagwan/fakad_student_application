@@ -70,12 +70,12 @@ GET http://localhost:8080/
 
 
 ### Get a fakad by ID
-GET http://localhost:8080/666c6cd69c63e3dfe6cd6def
+GET http://localhost:8080/666d443f0ad026418997a59e
 // Replace :id with the actual ID of the fakad
 
 
 ### Update a fakad
-curl -X PUT http://localhost:8080/666c6cd69c63e3dfe6cd6def \
+curl -X PUT http://localhost:8080/666d443f0ad026418997a59e \
 -H "Content-Type: application/json" \
 -d '{
   "firstName": "John",
@@ -136,60 +136,6 @@ curl -X PUT http://localhost:8080/666c6cd69c63e3dfe6cd6def \
 
 
 ### Delete a fakad by ID
-DELETE http://localhost:8080/666c6e8309e99005084905e8
+DELETE http://localhost:8080/666d443f0ad026418997a59e
 
 
-# // LOCALHOST
-# ### create fakads
-# curl -X POST http://localhost:8080/ \
-# -H "Content-Type: application/json" \
-# -d '{
-#   "firstName": "Hope",
-#   "middleName": "A",
-#   "lastName": "Simon",
-#   "gender": "Female",
-#   "occupation": "Software Engineer",
-#   "position": "Developer",
-#   "officeAddress": "123 Tech Street",
-#   "headquartersLocation": "Tech City HQ",
-#   "subBusinessBranches": ["Branch 1", "Branch 2"],
-#   "contactNumber": "+1234567890",
-#   "email": "dan@gmail.com",
-#   "socialMediaHandles": {
-#     "linkedin": "linkedin.com/in/hopesimon",
-#     "twitter": "twitter.com/hopesimon"
-#   },
-#   "passportPhotograph": "base64ImageString"
-# }'
-
-
-# ### get all fakads
-# GET http://localhost:8080/
-
-# ### get fakads by id
-# GET http://localhost:8080/666befec70789b4ba885ec2b
-
-# ### update fakad
-# curl -X PUT http://localhost:8080/666c37151beda200ff3312b7 \
-# -H "Content-Type: application/json" \
-# -d '{
-#   "firstName": "John",
-#   "middleName": "B",
-#   "lastName": "Doe",
-#   "gender": "Male",
-#   "occupation": "Data Scientist",
-#   "position": "Senior Analyst",
-#   "officeAddress": "456 Data Avenue",
-#   "headquartersLocation": "Data City HQ",
-#   "subBusinessBranches": ["Branch 3", "Branch 4"],
-#   "contactNumber": "+9876543210",
-#   "email": "johndoe@example.com",
-#   "socialMediaHandles": {
-#     "linkedin": "linkedin.com/in/johndoe",
-#     "twitter": "twitter.com/johndoe"
-#   },
-#   "passportPhotograph": "newBase64ImageString"
-# }'
-
-# ### delete a fakad
-# DELETE http://localhost:8080/666c37151beda200ff3312b7

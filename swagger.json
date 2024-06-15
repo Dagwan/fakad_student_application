@@ -69,9 +69,6 @@
                 "previousTraining": {
                   "example": "any"
                 },
-                "nameOfProgram": {
-                  "example": "any"
-                },
                 "previousTrainingDetails": {
                   "example": "any"
                 },
@@ -105,6 +102,9 @@
       },
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -204,9 +204,6 @@
                 "previousTraining": {
                   "example": "any"
                 },
-                "nameOfProgram": {
-                  "example": "any"
-                },
                 "previousTrainingDetails": {
                   "example": "any"
                 },
@@ -227,8 +224,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "400": {
             "description": "Bad Request"
@@ -252,8 +249,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "404": {
             "description": "Not Found"
