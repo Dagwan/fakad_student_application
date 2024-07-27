@@ -107,10 +107,10 @@ const CreateAccount = () => {
                 }, {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer 7830b3752ea8ea01538d3123c7c512fd7fa26dbeb49c5b5030d30926f4f6e20d',
-                    },
-                });
-
+                        'Authorization': `Bearer ${process.env.JWT_SECRET}`, 
+                      },
+                    });
+                  
                 setSuccess(true);
                 navigate('/create-account'); // Redirect to ceate account success page
             } catch (error) {
