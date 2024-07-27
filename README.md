@@ -49,3 +49,7 @@ While the current version of the Fakad Infotech Application provides essential f
 - Integrate additional data validation checks to ensure data integrity.
 - Improve logging and monitoring capabilities to track API usage and performance.
 - Expand the API documentation to include detailed usage examples and code snippets.
+
+
+
+This project is licensed under the MIT License - see the [LICENSE](/docs/LICENSE) file for details.
