@@ -34,7 +34,7 @@ const Login = () => {
     if (Object.keys(errors).length === 0) {
       setLoading(true);
       try {
-        const response = await axios.post('http://localhost:8080/create-account/login', {
+        const response = await axios.post('https://fakad-student-application.onrender.com/create-account/login', {
           username: formData.get('username'),
           password: formData.get('password'),
         });
@@ -118,7 +118,7 @@ const ForgotPasswordPopup = ({ onClose, onResetPassword }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/create-account/forgot-password', { email });
+      await axios.post('https://fakad-student-application.onrender.com/create-account/forgot-password', { email });
       setMessage(`A token has been sent to your email: ${email}, please check and use it to reset your password.`);
       setTimeout(() => {
         onClose();

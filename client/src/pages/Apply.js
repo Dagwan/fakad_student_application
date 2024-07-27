@@ -208,7 +208,7 @@ const ApplicationForm = () => {
           }
         }
 
-        await axios.post('http://localhost:8080/application-form/', formDataWithFiles, {
+        await axios.post('https://fakad-student-application.onrender.com/application-form/', formDataWithFiles, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }

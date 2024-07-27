@@ -76,7 +76,7 @@ const ContactUs = () => {
 
         if (Object.keys(errors).length === 0) {
             try {
-                await axios.post('http://localhost:8080/contact-us/', formData);
+                await axios.post('https://fakad-student-application.onrender.com/contact-us/', formData);
                 navigate('/thank-you'); // Redirect to ThankYou page
             } catch (error) {
                 console.error('Error submitting contact form', error);

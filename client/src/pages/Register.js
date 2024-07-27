@@ -93,7 +93,7 @@ const CreateAccount = () => {
 
         if (Object.keys(errors).length === 0) {
             try {
-                await axios.post('http://localhost:8080/create-account/', {
+                await axios.post('https://fakad-student-application.onrender.com/create-account/', {
                     fullName: formData.fullName,
                     username: formData.username,
                     password: formData.password,
