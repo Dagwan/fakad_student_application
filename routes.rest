@@ -1,7 +1,7 @@
 # // LOCALHOST
 
 # ### create fakads
-curl -X POST http://localhost:8080/ \
+curl -X POST http://localhost:8080/application-form/
 -H "Content-Type: application/json" \
 -d '{
   "firstName": "Hope",
@@ -66,16 +66,16 @@ curl -X POST http://localhost:8080/ \
 }'
 
 ### Get all fakads
-GET http://localhost:8080/
+GET http://localhost:8080/application-form/
 
 
 ### Get a fakad by ID
-GET http://localhost:8080/666d5890488b8fbb7aed8df8
+GET http://localhost:8080/application-form/66890e636b65899be59dc359
 // Replace :id with the actual ID of the fakad
 
 
 ### Update a fakad
-curl -X PUT http://localhost:8080/666d5a06c7037727e4798ed7 \
+curl -X PUT http://localhost:8080/application-form/66890e636b65899be59dc359 \
 -H "Content-Type: application/json" \
 -d '{
   "firstName": "John",
@@ -136,6 +136,133 @@ curl -X PUT http://localhost:8080/666d5a06c7037727e4798ed7 \
 
 
 ### Delete a fakad by ID
-DELETE http://localhost:8080/666d5890488b8fbb7aed8df8
+DELETE http://localhost:8080/application-form/66890e636b65899be59dc359
 
+
+### -------------------------------------------------------------------
+
+
+
+### Contact us 
+# // LOCALHOST
+
+# ### Create a contact message
+curl -X POST http://localhost:8080/contact-us/ \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "phone": "+1234567890",
+  "subject": "Inquiry about services",
+  "message": "I would like to know more about your training programs."
+}'
+
+### Get all contact messages
+GET http://localhost:8080/contact-us/
+
+### Get a contact message by ID
+GET http://localhost:8080/contact-us/668927861ce7bfba1f64ab5e
+// Replace :id with the actual ID of the contact message
+
+### Update a contact message
+curl -X PUT http://localhost:8080/contact-us/668927861ce7bfba1f64ab5e \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Jane Doe",
+  "email": "janedoe@example.com",
+  "phone": "+0987654321",
+  "subject": "Updated inquiry",
+  "message": "I have more questions about your training programs."
+}'
+
+
+### Delete a contact message by ID
+DELETE http://localhost:8080/contact-us/1234567890abcdef12345678
+
+
+
+
+
+-----------------------------------------------------------------
+
+# LOCALHOST
+
+# Create an account message
+###
+curl -X POST http://localhost:8080/create-account/ \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer 7830b3752ea8ea01538d3123c7c512fd7fa26dbeb49c5b5030d30926f4f6e20d" \
+-d '{
+  "fullName": "Jane John",
+  "username": "john",
+  "password": "newpassword123",
+  "confirmPassword": "newpassword123",
+  "email": "janedoe@example.com",
+  "phone": "+0987654321",
+  "dob": "1992-02-02",
+  "gender": "Female",
+  "terms": true,
+  "privacy": true
+}'
+
+
+### Login 
+curl -X POST http://localhost:8080/create-account/login \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "dagwan",
+  "password": "dagwanpan0810"
+}'
+
+### Forgot Password
+curl -X POST http://localhost:8080/create-account/forgot-password \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "dagwanpan@gmail.com"
+}'
+
+### Reset Password
+curl -X POST http://localhost:8080/create-account/reset-password/e85683ee38bf459b089ff4b028bc7836e3ff729853896ab7c351c5383c7bbb60 \
+-H "Content-Type: application/json" \
+-d '{
+  "password": "dagwanpan0810",
+  "confirmPassword": "dagwanpan0810"
+}'
+
+
+# Get all user accounts
+###
+curl -X GET http://localhost:8080/create-account/ \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI2NjlmZTY0MDA2YWFmNDAxOTExNDJiMTQiLCJ1c2VybmFtZSI6ImRhZ3dhbiIsImlhdCI6MTcyMTc1NTIwMCwiZXhwIjoxNzIxNzU4ODAwfQ.7lhXzvfOq5gIjghE4lgq0IVjvb0rIADCXOXEgxvXA7A"
+
+# Get a user account by ID
+###
+curl -X GET http://localhost:8080/create-account/669fe64006aaf40191142b14 \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI2NjlmZTY0MDA2YWFmNDAxOTExNDJiMTQiLCJ1c2VybmFtZSI6ImRhZ3dhbiIsImlhdCI6MTcyMTc1NTIwMCwiZXhwIjoxNzIxNzU4ODAwfQ.7lhXzvfOq5gIjghE4lgq0IVjvb0rIADCXOXEgxvXA7A"
+# Replace :id with the actual ID of the user account
+
+# Update a user account
+###
+curl -X PUT http://localhost:8080/create-account/669fe64006aaf40191142b14 \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI2NjlmZTY0MDA2YWFmNDAxOTExNDJiMTQiLCJ1c2VybmFtZSI6ImRhZ3dhbiIsImlhdCI6MTcyMTc1NTIwMCwiZXhwIjoxNzIxNzU4ODAwfQ.7lhXzvfOq5gIjghE4lgq0IVjvb0rIADCXOXEgxvXA7A" \
+-d '{
+  "fullName": "Jane Doe",
+  "username": "janedoe",
+  "password": "newpassword123",
+  "confirmPassword": "newpassword123",
+  "email": "janedoe@example.com",
+  "phone": "+0987654321",
+  "dob": "1992-02-02",
+  "gender": "Female",
+  "terms": true,
+  "privacy": true
+}'
+# Replace :id with the actual ID of the user account
+
+# Delete a user account by ID
+###
+curl -X DELETE http://localhost:8080/create-account/669fe64006aaf40191142b14 \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI2NjlmZTY0MDA2YWFmNDAxOTExNDJiMTQiLCJ1c2VybmFtZSI6ImRhZ3dhbiIsImlhdCI6MTcyMTc1NTIwMCwiZXhwIjoxNzIxNzU4ODAwfQ.7lhXzvfOq5gIjghE4lgq0IVjvb0rIADCXOXEgxvXA7A"
+# Replace :id with the actual ID of the user account
 

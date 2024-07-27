@@ -1,10 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
-//const { validate } = require('../validators'); // Import custom validation middleware
+const multer = require('multer');
+//const { validate } = require('../validators'); 
 
 // Import the fakadController to handle requests
 const fakadController = require('../controllers/fakadController');
+
+// Set up multer storage
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); // Define the upload directory
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname); // Define the filename
+  }
+});
+
+const upload = multer({ storage: storage });
 
 // Validation and sanitization middleware for create and update operations
 const validateAndSanitizeFakad = [
@@ -64,7 +77,11 @@ const validateAndSanitizeFakad = [
 // Define the API routes and their corresponding controller methods
 
 // Create a new fakad
-router.post('/', validateAndSanitizeFakad, fakadController.createFakad);
+router.post('/', upload.fields([
+  { name: 'passportPhotograph', maxCount: 1 },
+  { name: 'guardianIdentificationUpload', maxCount: 1 },
+  { name: 'guardianPassportPhotograph', maxCount: 1 }
+]), validateAndSanitizeFakad, fakadController.createFakad);
 
 // Get all fakads
 router.get('/', fakadController.getAllFakads);

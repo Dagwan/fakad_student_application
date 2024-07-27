@@ -1,8 +1,10 @@
 const mongodb = require('../db/db');
 const ObjectId = require('mongodb').ObjectId;
 const { validationResult } = require('express-validator');
+const path = require('path');
+const fs = require('fs');
 
-// Create a new faka_info_tech
+// Create a new fakad_info_tech
 const createFakad = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -30,7 +32,6 @@ const createFakad = async (req, res) => {
       previousTraining,
       previousTrainingDetails,
       choiceOfTrainingProgramme,
-      passportPhotograph,
       // Guardian Information
       guardian: {
         firstName: guardianFirstName,
@@ -48,7 +49,7 @@ const createFakad = async (req, res) => {
         homeTown: guardianHomeTown,
         villageAddress: guardianVillageAddress,
         identificationType: guardianIdentificationType,
-        identificationUpload: guardianIdentificationUpload,
+        identificationUpload,
         passportPhotograph: guardianPassportPhotograph
       },
       // Next of Kin Information
@@ -71,8 +72,13 @@ const createFakad = async (req, res) => {
       }
     } = req.body;
 
+    // Handle file uploads
+    const passportPhotographPath = req.files && req.files['passportPhotograph'] ? req.files['passportPhotograph'][0].path : null;
+    const guardianIdentificationUploadPath = req.files && req.files['guardianIdentificationUpload'] ? req.files['guardianIdentificationUpload'][0].path : null;
+    const guardianPassportPhotographPath = req.files && req.files['guardianPassportPhotograph'] ? req.files['guardianPassportPhotograph'][0].path : null;
+
     // Check if first name or email already exists
-    const existingFakad = await mongodb.getDb().db().collection('faka_info_techs').findOne({ 
+    const existingFakad = await mongodb.getDb().db().collection('fakad_info_techs').findOne({ 
       $or: [
         { firstName: firstName },
         { email: email }
@@ -83,8 +89,8 @@ const createFakad = async (req, res) => {
       return res.status(400).json({ error: 'First name or Email address is already in use.' });
     }
 
-    // Create the new faka_info_tech
-    const faka_info_tech = {
+    // Create the new fakad_info_tech
+    const fakad_info_tech = {
       // Student Information
       firstName,
       middleName,
@@ -104,7 +110,7 @@ const createFakad = async (req, res) => {
       previousTraining,
       previousTrainingDetails,
       choiceOfTrainingProgramme,
-      passportPhotograph,
+      passportPhotograph: passportPhotographPath,
       // Guardian Information
       guardian: {
         firstName: guardianFirstName,
@@ -122,8 +128,8 @@ const createFakad = async (req, res) => {
         homeTown: guardianHomeTown,
         villageAddress: guardianVillageAddress,
         identificationType: guardianIdentificationType,
-        identificationUpload: guardianIdentificationUpload,
-        passportPhotograph: guardianPassportPhotograph
+        identificationUpload: guardianIdentificationUploadPath,
+        passportPhotograph: guardianPassportPhotographPath
       },
       // Next of Kin Information
       nextOfKin: {
@@ -145,60 +151,59 @@ const createFakad = async (req, res) => {
       }
     };
 
-    const response = await mongodb.getDb().db().collection('faka_info_techs').insertOne(faka_info_tech);
+    const response = await mongodb.getDb().db().collection('fakad_info_techs').insertOne(fakad_info_tech);
 
     if (response.acknowledged) {
       res.status(201).json({ success: 'Fakad created successfully', fakadId: response.insertedId });
     } else {
-      res.status(500).json({ error: 'Error occurred while creating the faka_info_tech.' });
+      res.status(500).json({ error: 'Error occurred while creating the fakad_info_tech.' });
     }
   } catch (error) {
-    console.error('Error creating a faka_info_tech:', error);
-    res.status(500).json({ error: 'An error occurred while creating the faka_info_tech.' });
+    console.error('Error creating a fakad_info_tech:', error);
+    res.status(500).json({ error: 'An error occurred while creating the fakad_info_tech.' });
   }
 };
 
-
-// Get all faka_info_techs
+// Get all fakad_info_techs
 const getAllFakads = async (req, res) => {
   try {
-    const result = await mongodb.getDb().db().collection('faka_info_techs').find();
-    const faka_info_techs = await result.toArray();
+    const result = await mongodb.getDb().db().collection('fakad_info_techs').find();
+    const fakad_info_techs = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(faka_info_techs);
+    res.status(200).json(fakad_info_techs);
   } catch (error) {
-    console.error('Error fetching all faka_info_techs:', error);
-    res.status(500).json({ error: 'An error occurred while fetching all faka_info_techs.' });
+    console.error('Error fetching all fakad_info_techs:', error);
+    res.status(500).json({ error: 'An error occurred while fetching all fakad_info_techs.' });
   }
 };
 
-// Get a single faka_info_tech by ID
+// Get a single fakad_info_tech by ID
 const getSingleFakad = async (req, res) => {
   try {
     const userId = req.params.id;
 
     if (!ObjectId.isValid(userId)) {
-      return res.status(400).json({ error: 'Invalid faka_info_tech ID format.' });
+      return res.status(400).json({ error: 'Invalid fakad_info_tech ID format.' });
     }
 
-    const faka_info_tech = await mongodb
+    const fakad_info_tech = await mongodb
       .getDb()
       .db()
-      .collection('faka_info_techs')
+      .collection('fakad_info_techs')
       .findOne({ _id: new ObjectId(userId) });
 
-    if (!faka_info_tech) {
+    if (!fakad_info_tech) {
       return res.status(404).json({ error: 'Fakad not found.' });
     }
 
-    res.status(200).json(faka_info_tech);
+    res.status(200).json(fakad_info_tech);
   } catch (error) {
-    console.error('Error fetching a single faka_info_tech by ID:', error);
-    res.status(500).json({ error: 'An error occurred while fetching the faka_info_tech.' });
+    console.error('Error fetching a single fakad_info_tech by ID:', error);
+    res.status(500).json({ error: 'An error occurred while fetching the fakad_info_tech.' });
   }
 };
 
-// Update an existing faka_info_tech by ID
+// Update an existing fakad_info_tech by ID
 const updateFakad = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -267,9 +272,9 @@ const updateFakad = async (req, res) => {
       }
     } = req.body;
 
-    // Update the faka_info_tech
-    const faka_info_tech = {
-      _id: userId, // Ensure the _id field is preserved
+    // Update the fakad_info_tech
+    const fakad_info_tech = {
+      _id: userId, 
       firstName,
       middleName,
       lastName,
@@ -332,41 +337,41 @@ const updateFakad = async (req, res) => {
     const response = await mongodb
       .getDb()
       .db()
-      .collection('faka_info_techs')
-      .replaceOne({ _id: userId }, faka_info_tech);
+      .collection('fakad_info_techs')
+      .replaceOne({ _id: userId }, fakad_info_tech);
 
     if (response.modifiedCount > 0) {
-      res.status(201).json({ success: 'Fakad successfully updated', fakadId: response.insertedId }); // Successfully updated
+      res.status(201).json({ success: 'Fakad successfully updated', fakadId: response.insertedId }); 
     } else {
-      res.status(404).json({ error: 'Fakad not found.' }); // Document not found
+      res.status(404).json({ error: 'Fakad not found.' }); 
     }
   } catch (error) {
-    console.error('Error updating a faka_info_tech by ID:', error);
-    res.status(500).json({ error: 'An error occurred while updating the faka_info_tech.' });
+    console.error('Error updating a fakad_info_tech by ID:', error);
+    res.status(500).json({ error: 'An error occurred while updating the fakad_info_tech.' });
   }
 };
 
-// Delete a faka_info_tech by ID
+// Delete a fakad_info_tech by ID
 const deleteFakad = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
 
-    const fakadExists = await mongodb.getDb().db().collection('faka_info_techs').findOne({ _id: userId });
+    const fakadExists = await mongodb.getDb().db().collection('fakad_info_techs').findOne({ _id: userId });
 
     if (!fakadExists) {
       return res.status(404).json({ error: 'Fakad not found.' });
     }
 
-    const response = await mongodb.getDb().db().collection('faka_info_techs').deleteOne({ _id: userId });
+    const response = await mongodb.getDb().db().collection('fakad_info_techs').deleteOne({ _id: userId });
 
     if (response.deletedCount > 0) {
-      res.status(201).json({ success: 'Fakad successfully deleted', fakadId: response.insertedId }); // Success deleted
+      res.status(201).json({ success: 'Fakad successfully deleted', fakadId: response.insertedId }); 
     } else {
-      res.status(500).json({ error: 'Error occurred while deleting the faka_info_tech.' });
+      res.status(500).json({ error: 'Error occurred while deleting the fakad_info_tech.' });
     }
   } catch (error) {
-    console.error('Error deleting a faka_info_tech by ID:', error);
-    res.status(500).json({ error: 'An error occurred while deleting the faka_info_tech.' });
+    console.error('Error deleting a fakad_info_tech by ID:', error);
+    res.status(500).json({ error: 'An error occurred while deleting the fakad_info_tech.' });
   }
 };
 
