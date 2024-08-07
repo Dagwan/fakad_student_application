@@ -1,19 +1,32 @@
 # Fakad Infotech Application
 
-This project is an API designed to facilitate the efficient management of various services provided by Fakad Infotech. Whether you need to manage resumes, company profiles, graphics, web design, database management, or training programs, this API has got you covered. With a user-friendly interface and comprehensive functionality, you can seamlessly integrate these services into your applications.
+The Fakad Infotech Application is a RESTful API built using Node.js and Express.js. It allows users to perform CRUD (Create, Read, Update, Delete) operations on various service-related data. The API is equipped with endpoints to handle tasks such as creating new entries, retrieving existing ones, updating details, and deleting entries.
 
 ## Overview
 
-The Fakad Infotech Application is a RESTful API built using Node.js and Express.js. It allows users to perform CRUD (Create, Read, Update, Delete) operations on various service-related data. The API is equipped with endpoints to handle tasks such as creating new entries, retrieving existing ones, updating details, and deleting entries.
+This project is an API designed to handle the backend functionality for Fakad Infotech Centre. It provides comprehensive CRUD operations to manage various aspects of the application, including:
 
-[API Documentation](https://fakad-infotech-api.onrender.com/api-docs/)
+- **Contact Page:** Perform CRUD operations on contact information.
+- **Student Application Forms:** Create, read, update, and delete student application forms.
+- **Account Management:** Manage user accounts, including functionalities for creating accounts, logging in, password recovery, and resetting passwords.
+
+With its user-friendly interface and robust functionality, this API enables seamless integration into your applications, ensuring efficient management and operations for backend services.
+
+[API Documentation](https://fakad-infotech-api.onrender.com/application-form/api-docs/)
 
 ## Features
+
+- **Contact Page:** Manage contact information with the ability to create, retrieve, update, and delete entries.
+- **Student Application Forms:** Handle student applications by providing endpoints for creating new applications, retrieving existing ones, updating details, and deleting applications.
+- **Account Management:** Supports user account functionalities including account creation, login, password recovery, and password reset.
+
+---------------------------------------------------------------------------------------------------------------------------------
 
 - **Create Entries:** Users can add new entries to the database by providing relevant details in JSON format.
 - **Retrieve Entries:** The API allows users to fetch a list of all entries or retrieve a specific entry by its unique ID.
 - **Update Entries:** Users can easily update information using the PUT endpoint. They can send the updated details in JSON format to modify existing entries.
 - **Delete Entries:** Entries can be removed from the database using the DELETE endpoint. Users need to specify the entry's ID to delete a specific entry.
+
 
 ## Development Environment
 
