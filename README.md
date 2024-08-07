@@ -31,6 +31,15 @@ To install the necessary dependencies, run the following command:
 npm install
 ```
 
+## Local Testing
+
+-----------------------------------------------------------------
+For local testing, replace the base URL "https://fakad-student-application.onrender.com/application-form" with http://localhost:8080/application-form.
+
+For example, the endpoint "https://fakad-student-application.onrender.com/application-form" should be accessed as "http://localhost:8080/application-form" when testing locally. Everything else in the API request remains the same.
+
+-----------------------------------------------------------------
+
 ## Useful Websites
 
 - [Node.js Documentation](https://nodejs.org/en/docs/)
