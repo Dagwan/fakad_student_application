@@ -12,7 +12,7 @@ This project is an API designed to handle the backend functionality for Fakad In
 
 With its user-friendly interface and robust functionality, this API enables seamless integration into your applications, ensuring efficient management and operations for backend services.
 
-[API Documentation](https://fakad-infotech-api.onrender.com/application-form/api-docs/)
+[API Documentation](https://fakad-student-application.onrender.com/application-form/api-docs/)
 
 ## Features
 
